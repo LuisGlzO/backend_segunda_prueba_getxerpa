@@ -33,3 +33,7 @@
   "ignorar": false,
   "id_categoria": 1
 }
+
+
+## IMPORTANTE AL INSTALAR EL PROYECTO
+### Creé un requirements.txt para que se instale todo lo necesario para correr el proyecto, esto se hace corriendo el comando pip install -r requirements.txt
