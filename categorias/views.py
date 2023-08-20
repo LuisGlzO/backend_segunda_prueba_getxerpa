@@ -14,7 +14,7 @@ class Categoria_api(APIView):
         #calcular el porcentaje utilizado del presupuesto para cada categoria
         for item in serializer.data:
             if item['limite'] > 0:
-                item['porcentaje_usado'] = ( item['total'] / item['limite'] ) * 100
+                item['porcentaje_usado'] = round((( item['total'] / item['limite'] ) * 100), 2)
             else:
                 item['porcentaje_usado'] = 0
         return Response(serializer.data, status=status.HTTP_200_OK)
