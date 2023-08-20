@@ -13,7 +13,10 @@ class Categoria_api(APIView):
         serializer = CategoriaSerializer(categoria, many=True)
         #calcular el porcentaje utilizado del presupuesto para cada categoria
         for item in serializer.data:
-            item['porcentaje_usado'] = ( item['total'] / item['limite'] ) * 100
+            if item['limite'] > 0:
+                item['porcentaje_usado'] = ( item['total'] / item['limite'] ) * 100
+            else:
+                item['porcentaje_usado'] = 0
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def post(self, request):
